@@ -1,0 +1,18 @@
+accountId: null
+connector:
+  containerImagePath: tenable/cloud-security-kubernetes-cluster-connector
+  containerImagePullSecrets: []
+  enabled: true 
+  identity: true
+  network: true
+manager:
+  containerImagePath: tenable/cloud-security-kubernetes-cluster-connector
+  containerImagePullSecrets: []
+name: null
+pod:
+  affinity: {}
+  annotations: {}
+  labels: {}
+  resources: {}
+  tolerations: []
+resourceNamePrefix: kubernetes-cluster
