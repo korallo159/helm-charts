@@ -28,7 +28,7 @@
       "type": "object"
     },
     "accountId": {
-      "type": ["integer", "string"]
+      "type": ["integer", "null", "string"]
     },
     "apiKeyToken": {
       "type": "string"
@@ -44,8 +44,7 @@
     }
   },
   "required": [
-    "apiUrl",
-    "containerImagePath"
+    "apiUrl"
   ],
   "type": "object"
 }

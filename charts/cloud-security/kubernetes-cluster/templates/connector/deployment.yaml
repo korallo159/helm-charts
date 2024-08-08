@@ -7,7 +7,7 @@ metadata:
   labels:
     {{- include "labels" . | nindent 4 }}
     {{- include "connector.labels" . | nindent 4 }}
-  name: {{- include "connector.resourceNamePrefix" . }}-deployment
+  name: {{ include "connector.resourceNamePrefix" . }}-deployment
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
@@ -39,10 +39,6 @@ spec:
           "/var/run/secrets/application/apikeytoken",
           "--api-url",
           {{ .Values.apiUrl | quote }},
-          "--application-version",
-          {{ .Chart.AppVersion | quote }},
-          "--helm-release-name",
-          {{- print .Release.Namespace ":" .Release.Name | quote }},
           {{- if .Values.connector.identity }}
           "--identity",
           {{- end}}
@@ -57,15 +53,11 @@ spec:
           "--proxy-url",
           {{ .Values.proxyUrl | quote }},
           {{- end}}
-          {{- if .Values.accountId }}
-          "--tenant-raw-id",
-          {{ .Values.accountId | quote }}
-          {{- end}}
         ]
         {{- include "environmentVariables" . | nindent 8 }}
         image: {{ .Values.connector.containerImagePath }}
         imagePullPolicy: Always
-        name: {{- include "connector.resourceNamePrefix" . }}-container
+        name: {{ include "connector.resourceNamePrefix" . }}-container
         {{- with .Values.pod.resources }}
         resources:
         {{- toYaml . | nindent 10 }}
@@ -90,7 +82,7 @@ spec:
       securityContext:
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: {{- include "connector.resourceNamePrefix" . }}-service-account
+      serviceAccountName: {{ include "connector.resourceNamePrefix" . }}-service-account
       {{- with .Values.pod.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}

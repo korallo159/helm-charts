@@ -35,7 +35,7 @@ spec:
           "--api-url",
           {{ .Values.apiUrl | quote }},
           "--helm-release-name",
-          {{- print .Release.Namespace ":" .Release.Name | quote }},
+          {{ print .Release.Namespace ":" .Release.Name | quote }},
           {{- if .Values.proxyUrl }}
           "--proxy-url",
           {{ .Values.proxyUrl | quote }},

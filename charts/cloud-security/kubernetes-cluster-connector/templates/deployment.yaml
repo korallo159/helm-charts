@@ -39,7 +39,7 @@ spec:
           "--application-version",
           {{ .Chart.AppVersion | quote }},
           "--helm-release-name",
-          {{- print .Release.Namespace ":" .Release.Name | quote }},
+          {{ print .Release.Namespace ":" .Release.Name | quote }},
           {{- if .Values.configureIdentity }}
           "--identity",
           {{- end}}

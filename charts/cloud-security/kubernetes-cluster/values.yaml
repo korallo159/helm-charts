@@ -1,12 +1,13 @@
 accountId: null
 connector:
-  containerImagePath: tenable/cloud-security-kubernetes-cluster-connector
+  containerImagePath: tenable/cloud-security-kubernetes-cluster
   containerImagePullSecrets: []
-  enabled: true 
+  enabled: true
   identity: true
   network: true
+containerImagePath: tenable/cloud-security-kubernetes-cluster
 manager:
-  containerImagePath: tenable/cloud-security-kubernetes-cluster-connector
+  containerImagePath: tenable/cloud-security-kubernetes-cluster
   containerImagePullSecrets: []
 name: null
 pod:

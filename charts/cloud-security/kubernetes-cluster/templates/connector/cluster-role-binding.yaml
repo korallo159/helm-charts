@@ -14,6 +14,6 @@ roleRef:
   name: {{ include "connector.globalResourceName" (dict "name" "cr" "root" .) }}
 subjects:
 - kind: ServiceAccount
-  name: {{- include "connector.resourceNamePrefix" . }}-service-account
+  name: {{ include "connector.resourceNamePrefix" . }}-service-account
   namespace: {{ .Release.Namespace }}
 {{- end }}

@@ -36,7 +36,7 @@ spec:
           "--application-version",
           {{ .Chart.AppVersion | quote }},
           "--helm-release-name",
-          {{- print .Release.Namespace ":" .Release.Name | quote }},
+          {{ print .Release.Namespace ":" .Release.Name | quote }},
           {{- if .Values.name }}
           "--name",
           {{ .Values.name | quote }},
@@ -51,7 +51,7 @@ spec:
           {{- end}}
         ]
         {{- include "environmentVariables" . | nindent 8 }}
-        image: {{ include "containerImagePath" . }}
+        image: {{ .Values.containerImagePath }}
         imagePullPolicy: Always
         name: {{ .Values.resourceNamePrefix }}-pre-install-container
         securityContext:
