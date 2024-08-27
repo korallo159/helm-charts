@@ -41,7 +41,7 @@ spec:
         ]
         {{- include "environmentVariables" . | nindent 8 }}
         image: {{ include "containerImagePath" . }}
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         name: {{ .Values.resourceNamePrefix }}-post-delete-container
         securityContext:
           allowPrivilegeEscalation: false

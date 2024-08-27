@@ -57,7 +57,7 @@ spec:
         ]
         {{- include "environmentVariables" . | nindent 8 }}
         image: {{ .Values.containerImagePath }}
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         name: {{ include "updater.resourceNamePrefix" . }}-container
         {{- with .Values.pod.resources }}
         resources:

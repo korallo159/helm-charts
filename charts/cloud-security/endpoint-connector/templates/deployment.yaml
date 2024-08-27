@@ -38,7 +38,7 @@ spec:
           {{ .Values.proxyUrl | quote }}
         ]
         image: {{ include "containerImagePath" . }}
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         name: {{ .Values.resourceNamePrefix }}-container
         {{- with .Values.pod.resources }}
         resources:
